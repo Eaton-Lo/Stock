@@ -6,7 +6,24 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<%@ include file="../config/headerFile.file"%>
+<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css"/>
+<link type="text/css" rel="stylesheet" href = "../css/jquery-ui.css"/>
+<link type="text/css" rel="stylesheet" href = "../css/public.css"/>
+
+<script type="text/javascript" src = "../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src = "../js/jquery-ui.js"></script>
+<script type="text/javascript" src = "../js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="../css/dataTables.tableTools.css">
+<script type="text/javascript" language="javascript" src="../js/jquery.dataTables.js"></script>
+
+<script type="text/javascript" language="javascript" src="../js/dataTables.tableTools.js"></script>
+
+<link type="text/css" rel="stylesheet" href="../css/font-awesome.min.css">
+
+<script type="text/javascript" src = "../js/public.js"></script>
+<script type="text/javascript" src="../js/datepicker.js"></script>
 <title></title>
 <style type="text/css">
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
@@ -132,18 +149,18 @@ body {
 	<div class="login-page">
 		<div class="form">
 			<form class="register-form">
-				<input type="text" placeholder="First name" /> <input type="text"
-					placeholder="Last name" /> <input type="password"
-					placeholder="Password" /> <input type="email"
-					placeholder="Email address" />
+				<input type="text" id="create_firstName" placeholder="First name" /> <input type="text"
+					placeholder="Last name" id="create_lastName"  /> <input type="password"
+					placeholder="Password"  id="create_password"  /> <input type="email"
+					placeholder="Email address"  id="create_email"  />
 				<div class="btn btn-default" id="createBtn">Create</div>
 				<p class="message">
 					Already registered? <a href="#">Sign In</a>
 				</p>
 			</form>
 			<form class="login-form">
-				<input type="text" placeholder="username" /> <input type="password"
-					placeholder="password" />
+				<input type="text" placeholder="email" id="login_email" /> <input type="password"
+					placeholder="password" id="login_password"/>
 				<div class="btn btn-default" id="loginBtn">Login</div>
 				<p class="message">
 					Not registered? <a href="#">Create an account</a>

@@ -9,7 +9,9 @@ public class User extends BaseModel<User> {
 //	public StockTransaction getByActionId(Object action_id) {
 //    	return StockTransaction.dao.findFirst("select * from action_settings where action_id = ?", action_id);
 //    }
-//    
+	public User findUserByEmailAndPassword(String email,String password){
+		return User.dao.findFirst("select * from users where user_email = ? and user_password = ?",email,password);
+	}
 	public List<User> findAll(){
     	return User.dao.find("select * from users");
 	}

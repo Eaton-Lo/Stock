@@ -15,5 +15,6 @@
 
 <link type="text/css" rel="stylesheet" href="../css/font-awesome.min.css">
 
+<script type="text/javascript" src="../js/checkLogin.js"></script>
 <script type="text/javascript" src = "../js/public.js"></script>
 <script type="text/javascript" src="../js/datepicker.js"></script>
