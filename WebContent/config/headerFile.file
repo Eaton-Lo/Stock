@@ -1,0 +1,19 @@
+
+<link type="text/css" rel="stylesheet" href="../css/bootstrap.min.css"/>
+<link type="text/css" rel="stylesheet" href = "../css/jquery-ui.css"/>
+<link type="text/css" rel="stylesheet" href = "../css/public.css"/>
+
+<script type="text/javascript" src = "../js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src = "../js/jquery-ui.js"></script>
+<script type="text/javascript" src = "../js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.css">
+<link rel="stylesheet" type="text/css" href="../css/dataTables.tableTools.css">
+<script type="text/javascript" language="javascript" src="../js/jquery.dataTables.js"></script>
+
+<script type="text/javascript" language="javascript" src="../js/dataTables.tableTools.js"></script>
+
+<link type="text/css" rel="stylesheet" href="../css/font-awesome.min.css">
+
+<script type="text/javascript" src = "../js/public.js"></script>
+<script type="text/javascript" src="../js/datepicker.js"></script>

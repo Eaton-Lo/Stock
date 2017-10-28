@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connector_info>
+	<display_name>BroadcastConnector 服務管理</display_name>
+	<base_connector_path>connector</base_connector_path>
+	<emma_host>http://localhost:8080</emma_host>
+	<project_path>BroadcastConnector</project_path>
+</connector_info>
