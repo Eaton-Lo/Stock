@@ -12,6 +12,64 @@ $(document).ready(function() {
 		$('tbody').append(html);
 	});
 	$('.datatable_s').DataTable();
+	
+	// stock search bar
+	
+	var dataObj = {
+			"user_email":$('#login_email').val(),
+			"user_password":$('#login_password').val(),
+			"action":"login"
+	};
+	
+	
+	
+	  var stocks = [
+	      "ActionScript",
+	      "AppleScript",
+	      "Asp",
+	      "BASIC",
+	      "C",
+	      "C++",
+	      "Clojure",
+	      "COBOL",
+	      "ColdFusion",
+	      "Erlang",
+	      "Fortran",
+	      "Groovy",
+	      "Haskell",
+	      "Java",
+	      "JavaScript",
+	      "Lisp",
+	      "Perl",
+	      "PHP",
+	      "Python",
+	      "Ruby",
+	      "Scala",
+	      "Scheme"
+	    ];
+	  
+
+		ajaxHelper(actionUrl, methodType, dataObj, asyncType,function(data){
+			console.log(data);
+			
+			stocks = data;			
+			
+		});
+	
+	  
+	  
+	  
+	  
+	  
+	    $( "#tags" ).autocomplete({
+	      source: stocks
+	    });
+	
 })
+
+
+
+
+
 
 

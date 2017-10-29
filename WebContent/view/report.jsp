@@ -16,28 +16,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">Portfolio</div>
-					<div class="panel-body">
-						<div class="">
-							<div class="col-lg-12">
-								<form role="form">
-									<div class="form-group" class="col-lg-12">
-										<label class="col-lg-2" style="text-align: center;">Create Portfolio</label>
-										<div class="col-lg-8">
-											<input id="symbol" class="form-control">
-										</div>
-										<div class="col-lg-2">
-											<div class="btn btn-success" id="symbolBtn">Create</div>
-										</div>
-									</div>
-								</form>
-								<input class="" id="tags" type="search">
-								
-							</div>
-							<!-- /.col-lg-6 (nested) -->
-						</div>
-						<!-- /.row (nested) -->
-					</div>
+					<div class="panel-heading">Stock Screener</div>
 					<div class="panel-body">
 						<div class="">
 							<div class="col-lg-12">
@@ -66,5 +45,5 @@
 		</div>
 	</section>
 </body>
-<script type="text/javascript" src="../js/portfolio.js"></script>
+<script type="text/javascript" src="../js/stock_screener.js"></script>
 </html>
