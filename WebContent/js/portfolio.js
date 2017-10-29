@@ -4,16 +4,12 @@ $(document).ready(function() {
 	getSymbols();
 	$('.datatable_s').DataTable();
 	
-	$('#symbolBtn').on('click',function(){
-		$( "#dialog-info" ).dialog({
-		      resizable: false,
-		      height: "auto",
-		      width: "auto",
-		      modal: true,
-		      title:"Choose"
-		  });
-	})
+//	$('#symbolBtn').on('click',function(){
+//		
+//	})
 
+	$( "#datepicker" ).datepicker();
+	
 	function getSymbols(){
 		var actionUrl = projectPath+"/v1/symbols";
 		var methodType = "GET";
@@ -26,7 +22,20 @@ $(document).ready(function() {
 				symbolSelectArray.push(value.symbol+" -- "+value.symbol_name +" -- " +value.exchange);
 			});		
 			$("#symbol").autocomplete({
-				source : symbolSelectArray
+				source : symbolSelectArray,
+				select: function( event, ui ) {
+					alert( ui);
+					$( "#symbol" ).val( ui );
+					
+					$( "#dialog-info" ).dialog({
+					      resizable: false,
+					      height: "auto",
+					      width: "auto",
+					      modal: true,
+					      title:"Choose"
+					 });
+				}
+				
 			});
 		});
 	}

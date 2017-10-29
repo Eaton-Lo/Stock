@@ -70,25 +70,35 @@
 		<div id="dialog-info" title="" style="display: none">
 			<div class="col-lg-12">
 				<form role="form">
-					<div class="form-group" style="display: none">
-						<label>id</label> <input class="form-control" id="userId" disabled>
-					</div>
-					<div class="form-group">
-						<label>Email</label> <input class="form-control" id="email"
+					<div class="form-group" >
+						<label>Symbol</label> <input class="form-control" id="symbol"
 							disabled>
 					</div>
+					<div class="form-group" >
+						<label>Type</label> <select name="type" class="form-control">
+							<option value="buy">Buy</option>
+							<option value="sell">Sell</option>
+						</select>
+					</div>
 					<div class="form-group">
-						<label>First Name</label> <input id="firstName"
+						<label>Date</label> <input class="form-control" id="datepicker">
+					</div>
+					<div class="form-group">
+						<label>Shares</label> <input id="shares"
 							class="form-control">
 					</div>
 					<div class="form-group">
-						<label>Last Name</label> <input id="lastName" class="form-control">
+						<label>Price</label> <input id="price" class="form-control">
 					</div>
 					<div class="form-group">
-						<label>Passorwd</label> <input type="password" id="password"
+						<label>Commission</label> <input id="commission"
 							class="form-control">
 					</div>
-					<hr />
+					<div class="form-group">
+						<label>Notes</label> <input id="notes"
+							class="form-control">
+					</div>
+					<hr/>
 					<div class="form-group">
 						<div class="btn btn-success col-lg-12" id="submitBtn">Submit</div>
 					</div>
