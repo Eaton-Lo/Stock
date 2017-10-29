@@ -16,9 +16,9 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading ">Portfolio
-						<div class="pull-right btn btn-success">
-							 create new portfolio
+					<div class="panel-heading ">
+						Portfolio
+						<div class="pull-right btn btn-success">create new portfolio
 						</div>
 					</div>
 					<div class="panel-body">
@@ -26,15 +26,16 @@
 							<div class="col-lg-12">
 								<form role="form">
 									<div class="form-group" class="col-lg-12">
-										<label class="col-lg-2" style="text-align: center;">Add Symbol</label>
+										<label class="col-lg-2" style="text-align: center;">Add
+											Symbol</label>
 										<div class="col-lg-8">
 											<input id="symbol" class="form-control">
 										</div>
 										<div class="col-lg-2">
-											<div class="btn btn-success" id="symbolBtn">Add</div>
+											<div class="btn btn-success" id="symbolBtn">Select</div>
 										</div>
 									</div>
-								</form>								
+								</form>
 							</div>
 							<!-- /.col-lg-6 (nested) -->
 						</div>
@@ -65,6 +66,34 @@
 				<!-- /.panel -->
 			</div>
 			<!-- /.col-lg-12 -->
+		</div>
+		<div id="dialog-info" title="" style="display: none">
+			<div class="col-lg-12">
+				<form role="form">
+					<div class="form-group" style="display: none">
+						<label>id</label> <input class="form-control" id="userId" disabled>
+					</div>
+					<div class="form-group">
+						<label>Email</label> <input class="form-control" id="email"
+							disabled>
+					</div>
+					<div class="form-group">
+						<label>First Name</label> <input id="firstName"
+							class="form-control">
+					</div>
+					<div class="form-group">
+						<label>Last Name</label> <input id="lastName" class="form-control">
+					</div>
+					<div class="form-group">
+						<label>Passorwd</label> <input type="password" id="password"
+							class="form-control">
+					</div>
+					<hr />
+					<div class="form-group">
+						<div class="btn btn-success col-lg-12" id="submitBtn">Submit</div>
+					</div>
+				</form>
+			</div>
 		</div>
 	</section>
 </body>
