@@ -16,7 +16,11 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">Portfolio</div>
+					<div class="panel-heading ">Portfolio
+						<div class="pull-right btn btn-success">
+							 create new portfolio
+						</div>
+					</div>
 					<div class="panel-body">
 						<div class="">
 							<div class="col-lg-12">
