@@ -22,17 +22,15 @@
 							<div class="col-lg-12">
 								<form role="form">
 									<div class="form-group" class="col-lg-12">
-										<label class="col-lg-2" style="text-align: center;">Create Portfolio</label>
+										<label class="col-lg-2" style="text-align: center;">Add Symbol</label>
 										<div class="col-lg-8">
 											<input id="symbol" class="form-control">
 										</div>
 										<div class="col-lg-2">
-											<div class="btn btn-success" id="symbolBtn">Create</div>
+											<div class="btn btn-success" id="symbolBtn">Add</div>
 										</div>
 									</div>
-								</form>
-								<input class="" id="tags" type="search">
-								
+								</form>								
 							</div>
 							<!-- /.col-lg-6 (nested) -->
 						</div>
