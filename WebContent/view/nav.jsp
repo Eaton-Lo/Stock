@@ -17,7 +17,7 @@
 			var html = "";
 			var portfoliosArray = data.user_portfolios;
 			$.each(portfoliosArray, function(key, value) {
-				html += "<li><a href='portfolio.jsp?id="+value.id+"'>"+value.portfolios_name+"</a></li>"
+				html += "<li><a href='portfolio.jsp?id="+value.id+"'>"+value.portfolio_name+"</a></li>"
 			});		
 			$('#portfolioSpan').append("<ul>"+html+"</ul>");
 		});

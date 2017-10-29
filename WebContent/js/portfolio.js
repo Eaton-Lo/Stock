@@ -14,7 +14,7 @@ $(document).ready(function() {
 		ajaxHelper(actionUrl, methodType, dataObj, asyncType,function(data){
 			console.log(data);
 			var user_portfolios = data.user_portfolios;
-			$('#PortfolioName').text(" : "+user_portfolios.portfolios_name);
+			$('#PortfolioName').text(" : "+user_portfolios.portfolio_name);
 		});
 	}
 
@@ -40,7 +40,7 @@ $(document).ready(function() {
 			var asyncType = false;
 			var dataObj = {
 					"user_id":sessionStorage.getItem('userId'),
-					"portfolios_name":portfolio
+					"portfolio_name":portfolio
 			};
 	    	//insert portfolio
 			ajaxHelper(actionUrl, methodType, dataObj, asyncType,function(data){
@@ -66,12 +66,12 @@ $(document).ready(function() {
 				source : symbolSelectArray,
 				select: function( event, ui ) {
 					alert( ui);
-					$( "#symbol" ).val( ui );
+					$( "#symbol_name" ).val( ui.item.value );
 					
 					$( "#dialog-info" ).dialog({
 					      resizable: false,
 					      height: "auto",
-					      width: "auto",
+					      width: 500,
 					      modal: true,
 					      title:"Choose"
 					 });

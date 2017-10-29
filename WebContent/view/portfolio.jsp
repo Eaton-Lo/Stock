@@ -76,7 +76,7 @@
 						<div class="form-group">
 							<label class="col-lg-3">Symbol</label>
 							<div class="col-lg-9">
-								<input class="form-control" id="symbol" disabled>
+								<input class="form-control" id="symbol_name" disabled>
 							</div>
 						</div>
 						<div class="form-group">
