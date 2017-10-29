@@ -8,6 +8,8 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <%@ include file="../config/headerFile.file"%>
 <title></title>
+<style type="text/css">
+</style>
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
@@ -18,8 +20,8 @@
 				<div class="panel panel-default">
 					<div class="panel-heading ">
 						Portfolio<span id="PortfolioName"></span>
-						<div class="pull-right btn btn-success" id="createNewPortfolioBtn">create new portfolio
-						</div>
+						<div class="pull-right btn btn-success" id="createNewPortfolioBtn">create
+							new portfolio</div>
 					</div>
 					<div class="panel-body">
 						<div class="">
@@ -68,42 +70,61 @@
 			<!-- /.col-lg-12 -->
 		</div>
 		<div id="dialog-info" title="" style="display: none">
-			<div class="col-lg-12">
-				<form role="form">
-					<div class="form-group" >
-						<label>Symbol</label> <input class="form-control" id="symbol"
-							disabled>
+			<form class="form-horizontal  tasi-form" action="?" method="post">
+				<section class="panel">
+					<div class="panel-body">
+						<div class="form-group">
+							<label class="col-lg-3">Symbol</label>
+							<div class="col-lg-9">
+								<input class="form-control" id="symbol" disabled>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-3">Type</label>
+							<div class="col-lg-9">
+								<select name="type" class="form-control">
+									<option value="buy">Buy</option>
+									<option value="sell">Sell</option>
+								</select>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-3">Date</label>
+							<div class="col-lg-9">
+								<input class="form-control" id="datepicker">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-3">Shares</label>
+							<div class="col-lg-9">
+								<input class="form-control" id="shares">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-3">Price</label>
+							<div class="col-lg-9">
+								<input class="form-control" id="price">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-3">Commission</label>
+							<div class="col-lg-9">
+								<input class="form-control" id="commission">
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-3">Notes</label>
+							<div class="col-lg-9">
+								<input class="form-control" id="notes">
+							</div>
+						</div>
+						<hr />
+						<div class="form-group">
+							<div class="btn btn-success col-lg-12" id="submitBtn">Submit</div>
+						</div>
 					</div>
-					<div class="form-group" >
-						<label>Type</label> <select name="type" class="form-control">
-							<option value="buy">Buy</option>
-							<option value="sell">Sell</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label>Date</label> <input class="form-control" id="datepicker">
-					</div>
-					<div class="form-group">
-						<label>Shares</label> <input id="shares"
-							class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Price</label> <input id="price" class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Commission</label> <input id="commission"
-							class="form-control">
-					</div>
-					<div class="form-group">
-						<label>Notes</label> <input id="notes"
-							class="form-control">
-					</div>
-					<hr/>
-					<div class="form-group">
-						<div class="btn btn-success col-lg-12" id="submitBtn">Submit</div>
-					</div>
-				</form>
-			</div>
+				</section>
+			</form>
 		</div>
 	</section>
 </body>
