@@ -17,8 +17,8 @@
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-heading ">
-						Portfolio
-						<div class="pull-right btn btn-success">create new portfolio
+						Portfolio<span id="PortfolioName"></span>
+						<div class="pull-right btn btn-success" id="createNewPortfolioBtn">create new portfolio
 						</div>
 					</div>
 					<div class="panel-body">

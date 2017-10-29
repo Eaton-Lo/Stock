@@ -47,7 +47,7 @@ public class entry extends JFinalConfig {
 		String dbName = "stock";
 		String DBUrl = "jdbc:mysql://localhost:3306/"+dbName+"?useUnicode=true&characterEncoding=utf-8&autoReconnect=true";
 		String DBUser = "root";
-		String DBPassword = "zxcvbnm123";
+		String DBPassword = "iscreen";
 		C3p0Plugin cp = new C3p0Plugin(DBUrl, DBUser, DBPassword);
 		me.add(cp);
 		

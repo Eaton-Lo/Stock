@@ -5,6 +5,10 @@ import java.util.List;
 public class UserPortfolio extends BaseModel<UserPortfolio> {
 	public static final UserPortfolio dao = new UserPortfolio();
 
+	public List<UserPortfolio> findUserPortfolio(String userId){
+    	return UserPortfolio.dao.find("select * from user_portfolios where user_id =?",userId);
+	}
+	
 	public List<UserPortfolio> findAll(){
     	return UserPortfolio.dao.find("select * from user_portfolios");
 	}
