@@ -17,13 +17,15 @@ import rest.API;
 import view.UserPortfoliosJsonSerializer;
 import view.UsersJsonSerializer;
 
-@API("/user_portfolios")
+@API("/users/:user_id/user_portfolios")
 public class UserPortfoliosController extends ApiController {
 
 	public void get() throws Exception {
+		String userId = getAttr("user_id");
 		String userPortfolioId = getPara();
+		
 		if (StrKit.isBlank(userPortfolioId)) {
-			List<UserPortfolio> userList = UserPortfolio.dao.findAll();
+			List<UserPortfolio> userList = UserPortfolio.dao.findUserPortfolio(userId);
 			Page<UserPortfolio> usersPage = new Page<>(userList, 0, userList.size(), 1, userList.size());
 			render(new JsonRender(new UserPortfoliosJsonSerializer(usersPage).getJson()));
 		} else {

@@ -17,7 +17,7 @@ import rest.API;
 import view.UserStocksJsonSerializer;
 import view.UsersJsonSerializer;
 
-@API("/user_stocks")
+@API("/users/:user_id/user_stocks")
 public class UserStocksController extends ApiController {
 
 	public void get() throws Exception {
