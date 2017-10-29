@@ -2,9 +2,9 @@ $(document).ready(function() {
 	var portfolioId = QueryString.id;
 	var symbolArray;
 	var symbolSelectArray = new Array();
-	
+
 	getSymbols();
-	$( "#datepicker" ).datepicker();
+	$('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' });
 
 	//from nav li onclick
 	if(portfolioId != undefined){
