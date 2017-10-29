@@ -12,9 +12,9 @@ public class Transaction extends BaseModel<Transaction> {
 //    	return StockTransaction.dao.findFirst("select * from action_settings where action_id = ?", action_id);
 //    }
 //    
-//	public List<StockTransaction> getAllActionSettingByServiceId(String serviceId){
-//    	return StockTransaction.dao.find("select * from action_settings where service_id = ?", serviceId);
-//	}
+	public List<Transaction> getAllTransactionByUserAndPortfolio(String userId,String portfolioId){
+    	return Transaction.dao.find("select transactions.*,symbols.symbol_name from transactions join symbols on transactions.symbol = symbols.symbol where user_id = ? and portfolio_id = ?", userId,portfolioId);
+	}
 //	
 //	public StockTransaction getAction(int service_id,int action_id) {
 //		 return StockTransaction.dao.findFirst("select * from action_settings where service_id = ? and action_id = ?", service_id, action_id);

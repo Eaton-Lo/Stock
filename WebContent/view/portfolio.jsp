@@ -25,7 +25,7 @@
 					</div>
 					<div class="panel-body">
 						<div class="">
-							<div class="col-lg-12">
+							<div class="col-lg-12" id="addSymbolDiv" style="display: none">
 								<form role="form">
 									<div class="form-group" class="col-lg-12">
 										<label class="col-lg-2" style="text-align: center;">Add
@@ -34,7 +34,49 @@
 											<input id="symbol" class="form-control">
 										</div>
 										<div class="col-lg-2">
-											<div class="btn btn-success" id="symbolBtn">Select</div>
+											<div class="btn btn-primary" id="symbolBtn">Add to portfolio</div>
+										</div>
+									</div>
+								</form>
+							</div>
+							<div class="col-lg-12" id="cashDiv" style="display: none">
+								<form role="form">
+									<div class="form-group" class="col-lg-12">
+										<label class="col-lg-2" style="text-align: center;">Cash
+										</label><span class="col-lg-2 btn cashTypeBtn">Deposit</span> <label
+											class="col-lg-1" style="text-align: center;">/</label> <span
+											class="col-lg-2 btn cashTypeBtn">Withdraw</span>
+									</div>
+								</form>
+							</div>
+							<div class="col-lg-12" id="cashTypeDiv" style="display: none">
+								<form role="form">
+									<div class="form-group" class="col-lg-12">
+										<label class="col-lg-2" style="text-align: center;"
+											id="cashTypeTitle"> </label>
+										<div class="col-lg-10">
+											<div class="col-lg-12">
+												<label class="col-lg-2" style="text-align: center;" id="">Date</label>
+												<div class="col-lg-4">
+													<input class="form-control" />
+												</div>
+												<label class="col-lg-2" style="text-align: center;" id="">Amount</label>
+												<div class="col-lg-4">
+													<input class="form-control" />
+												</div>
+
+											</div>
+											<div class="col-lg-12">
+												<label class="col-lg-2" style="text-align: center;" id="">Notes</label>
+												<div class="col-lg-6">
+													<input class="form-control" />
+												</div>
+												<div class="col-lg-4">
+													<div class="btn btn-default">Add to portfolio</div>
+													<div class="btn btn-default" id="cancelBtn">Cancel</div>
+												</div>
+											</div>
+											<div class="col-lg-12"></div>
 										</div>
 									</div>
 								</form>
@@ -49,11 +91,14 @@
 								<table class="table table-striped datatable_s" id="datatable">
 									<thead>
 										<tr>
-											<th>A</th>
-											<th>B</th>
-											<th>C</th>
-											<th>D</th>
-											<th>E</th>
+											<th>Name</th>
+											<th>Symbol</th>
+											<th>Type</th>
+											<th>Shares</th>
+											<th>Price</th>
+											<th>Balance</th>
+											<th>Note</th>
+											<!-- <th>Detail</th> -->
 										</tr>
 									</thead>
 									<tbody></tbody>
@@ -97,19 +142,19 @@
 						<div class="form-group">
 							<label class="col-lg-3">Shares</label>
 							<div class="col-lg-9">
-								<input class="form-control" id="shares">
+								<input class="form-control" id="shares" type="number">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-lg-3">Price</label>
 							<div class="col-lg-9">
-								<input class="form-control" id="price">
+								<input class="form-control" id="price" type="number">
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-lg-3">Commission</label>
 							<div class="col-lg-9">
-								<input class="form-control" id="commission">
+								<input class="form-control" id="commission" type="number">
 							</div>
 						</div>
 						<div class="form-group">

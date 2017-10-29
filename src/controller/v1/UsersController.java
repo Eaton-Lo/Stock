@@ -10,6 +10,7 @@ import com.jfinal.plugin.activerecord.Page;
 import controller.ApiController;
 import exception.ErrorCodedException;
 import model.User;
+import model.UserPortfolio;
 import common.ReturnCode;
 import render.JsonRender;
 import rest.API;
@@ -60,6 +61,12 @@ public class UsersController extends ApiController {
 			} else {
 				user = getModel(User.class);
 				if (user.create(body)) {
+					//create user default portfolio
+					JSONObject portfolioObject = new JSONObject();
+					portfolioObject.put("user_id", user.get("id").toString());
+					portfolioObject.put("portfolio_name", "MyPortfolio");
+					UserPortfolio userPortfolio = new UserPortfolio();
+					userPortfolio.create(portfolioObject);
 					render(new JsonRender(new UsersJsonSerializer(user).getJson()));
 				} else {
 					renderApiResult(ReturnCode.DATA_CREATE_FAILED, 422);

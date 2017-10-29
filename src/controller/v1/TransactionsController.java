@@ -20,19 +20,37 @@ import view.UsersJsonSerializer;
 @API("/transactions")
 public class TransactionsController extends ApiController {
 
-	public void get() throws Exception {
+	public void get() {
 		String transactionId = getPara();
-		if (StrKit.isBlank(transactionId)) {
-			List<Transaction> transactionList = Transaction.dao.findAll();
-			Page<Transaction> transactionPage = new Page<>(transactionList, 0, transactionList.size(), 1, transactionList.size());
-			render(new JsonRender(new TransactionsJsonSerializer(transactionPage).getJson()));
-		} else {
-			Transaction transaction = Transaction.dao.findById(transactionId);
-			if (transaction == null) {
-				renderApiResult(ReturnCode.DATA_NOT_FOUND, "transaction not found");
-				return;
+		String userId = getPara("userId");
+		String portfolioId = getPara("portfolioId");
+		try {
+			if (userId != null && portfolioId != null) {
+				List<Transaction> transactionList = Transaction.dao.getAllTransactionByUserAndPortfolio(userId,
+						portfolioId);
+				Page<Transaction> transactionPage = new Page<>(transactionList, 0, transactionList.size(), 1,
+						transactionList.size());
+
+				render(new JsonRender(new TransactionsJsonSerializer(transactionPage).getJson()));
+
+			} else {
+				if (StrKit.isBlank(transactionId)) {
+					List<Transaction> transactionList = Transaction.dao.findAll();
+					Page<Transaction> transactionPage = new Page<>(transactionList, 0, transactionList.size(), 1,
+							transactionList.size());
+					render(new JsonRender(new TransactionsJsonSerializer(transactionPage).getJson()));
+				} else {
+					Transaction transaction = Transaction.dao.findById(transactionId);
+					if (transaction == null) {
+						renderApiResult(ReturnCode.DATA_NOT_FOUND, "transaction not found");
+						return;
+					}
+					render(new JsonRender(new TransactionsJsonSerializer(transaction).getJson()));
+				}
 			}
-			render(new JsonRender(new TransactionsJsonSerializer(transaction).getJson()));
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 
