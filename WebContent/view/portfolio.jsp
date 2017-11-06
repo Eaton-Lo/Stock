@@ -20,8 +20,11 @@
 				<div class="panel panel-default">
 					<div class="panel-heading ">
 						Portfolio<span id="PortfolioName"></span>
+						<div class="pull-right btn btn-success" id="deletePortfolioBtn">delete
+							 portfolio</div>
 						<div class="pull-right btn btn-success" id="createNewPortfolioBtn">create
 							new portfolio</div>
+						
 					</div>
 					<div class="panel-body">
 						<div class="">

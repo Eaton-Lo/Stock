@@ -53,6 +53,25 @@ $(document).ready(function() {
 	    }
 	})
 
+	$('#deletePortfolioBtn').click(function(){
+	    var portfolio = confirm("Are you sure you want to delete this portfolio ?");
+	    	if (portfolio) {
+	    		
+			var actionUrl = projectPath+"/v1/users/"+sessionStorage.getItem('userId')+"/user_portfolios/"+portfolioId;
+			var methodType = "delete";
+			var asyncType = false;
+			var dataObj = {
+					"user_id":sessionStorage.getItem('userId'),
+					"portfolio_name":portfolio
+			};
+	    	//delete portfolio
+			ajaxHelper(actionUrl, methodType, dataObj, asyncType,function(data){
+				location.reload();
+			});
+			
+	    }
+	})
+	
 	
 	$('#submitBtn').click(function(){
 		var actionUrl = projectPath+"/v1/transactions";
