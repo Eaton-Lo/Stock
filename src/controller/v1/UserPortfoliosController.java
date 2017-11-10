@@ -84,6 +84,7 @@ public class UserPortfoliosController extends ApiController {
 
 	public void delete() {
 		String userPortfolioId = getPara();
+		
 		UserPortfolio userPortfolio = UserPortfolio.dao.findById(userPortfolioId);
 		if (userPortfolio == null) {
 			renderApiResult(ReturnCode.DATA_NOT_FOUND);

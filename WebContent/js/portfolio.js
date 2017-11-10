@@ -2,9 +2,11 @@ $(document).ready(function() {
 	var portfolioId = QueryString.id;
 	var symbolArray;
 	var symbolSelectArray = new Array();
+	
+	var user_cash = 0.0;
 
 	getSymbols();
-	$('#datepicker').datepicker({ dateFormat: 'yy/mm/dd' });
+	$('.datepicker').datepicker({ dateFormat: 'yy/mm/dd' });
 
 	//from nav li onclick
 	if(portfolioId != undefined){
@@ -16,11 +18,18 @@ $(document).ready(function() {
 			console.log(data);
 			var user_portfolios = data.user_portfolios;
 			$('#PortfolioName').text(" : "+user_portfolios.portfolio_name);
+			
+			$('#cashVal').text("$ "+ user_portfolios.cash);
+			user_cash = user_portfolios.cash;
+			
 		});
 		$('#addSymbolDiv').css('display','');
 		$('#cashDiv').css('display','');
 
-		getTransactions();
+		getTransactions();	
+
+		
+		
 	}else{
 		$('.datatable_s').DataTable();
 	}
@@ -33,6 +42,77 @@ $(document).ready(function() {
 	$('#cancelBtn').click(function(){
 		$('#cashTypeDiv').css('display','none');
 	})
+	
+	
+	// withdraw / deposit
+	$('#cashBtn').click(function(){
+		
+		var cashCkeck = false;
+
+		var cashAmount = $("#cashAmount").val();
+		var cashTypeTitle = $('#cashTypeTitle').text();
+		var cashType = "deposit";
+		if(cashTypeTitle == "Withdraw:"){
+			cashType ="withdraw";
+		}
+		
+		var cashTotal = 0.0 ;
+		if(isNaN(cashAmount) || cashAmount < 0 ){
+			alert("Amount field is not a vaild number");
+		}
+		else if(cashType == "withdraw" && cashAmount > user_cash )
+		{ 
+			alert(" Withdraw fail : balance is not enough !");
+		}
+		else{
+			cashCkeck = true;
+			if(cashType == "withdraw"){
+				cashTotal = Number(user_cash) - Number(cashAmount) ;
+			}
+			else{
+				cashTotal = Number(user_cash) + Number(cashAmount) ;
+			}
+		}
+		
+		if(cashCkeck){
+			
+			var actionUrl = projectPath+"/v1/transactions";
+			var methodType = "post";
+			var asyncType = false;
+			var dataObj = {
+					"user_id":sessionStorage.getItem('userId'),
+					"portfolio_id":portfolioId,
+					"transaction_type":cashType,
+					"transaction_datetime":$('#cashDatepicker').val(),
+					"balance":"1",
+					"cash_amount": $('#cashAmount').val(),
+					"description":$('#cashNotes').val()
+			};
+	      	//create transactions
+			ajaxHelper(actionUrl, methodType, dataObj, asyncType,function(data){
+				
+			});
+			
+			//update portfolio balance
+			actionUrl = projectPath+"/v1/users/"+sessionStorage.getItem('userId')+"/user_portfolios/"+portfolioId;
+			methodType = "put";
+			var asyncType = false;
+			var dataObj = {
+					"user_id":sessionStorage.getItem('userId'),
+					"cash": cashTotal
+			};
+			
+	        ajaxHelper(actionUrl, methodType, dataObj, asyncType,function(data){
+	               location.reload();
+			});
+			
+			
+		}
+		
+		
+	})
+	
+
 	
 	$('#createNewPortfolioBtn').click(function(){
 	    var portfolio = prompt("Please enter the name of your new portfolio:");
@@ -52,6 +132,25 @@ $(document).ready(function() {
 			});
 	    }
 	})
+	
+	$('#modifyPortfolioBtn').click(function(){
+	    var portfolio = prompt("Please enter the name of your portfolio:");
+	    if (portfolio == null || portfolio == "") {
+	    	alert("Please enter portfolio name!");
+	    } else {
+			var actionUrl = projectPath+"/v1/users/"+sessionStorage.getItem('userId')+"/user_portfolios/"+portfolioId;
+			var methodType = "put";
+			var asyncType = false;
+			var dataObj = {
+					"user_id":sessionStorage.getItem('userId'),
+					"portfolio_name":portfolio
+			};
+	    	//insert portfolio
+			ajaxHelper(actionUrl, methodType, dataObj, asyncType,function(data){
+				location.reload();
+			});
+	    }
+	})
 
 	$('#deletePortfolioBtn').click(function(){
 	    var portfolio = confirm("Are you sure you want to delete this portfolio ?");
@@ -60,20 +159,19 @@ $(document).ready(function() {
 			var actionUrl = projectPath+"/v1/users/"+sessionStorage.getItem('userId')+"/user_portfolios/"+portfolioId;
 			var methodType = "delete";
 			var asyncType = false;
-			var dataObj = {
-					"user_id":sessionStorage.getItem('userId'),
-					"portfolio_name":portfolio
-			};
+			var dataObj =null;
 	    	//delete portfolio
 			ajaxHelper(actionUrl, methodType, dataObj, asyncType,function(data){
-				location.reload();
-			});
-			
+				
+				window.location.href = projectPath+"/view/portfolio.jsp";
+				
+			});			
 	    }
 	})
 	
 	
 	$('#submitBtn').click(function(){
+		
 		var actionUrl = projectPath+"/v1/transactions";
 		var methodType = "post";
 		var asyncType = false;
@@ -139,7 +237,9 @@ $(document).ready(function() {
     	//get transactions
 		ajaxHelper(actionUrl, methodType, dataObj, asyncType,function(data){
 			var transactions = data.transactions;
+			console.log(transactions);
 			$.each(transactions, function( index, item ) {
+				
 				var trClass = index/2 == 0?trClass = 'odd':trClass = 'even';
 				var transaction_id = item.id;
 				var symbolName = item.symbol_name;
@@ -167,6 +267,7 @@ $(document).ready(function() {
 			});
 			
 			$('.datatable_s').DataTable();
+			
 		});
 	}
 })

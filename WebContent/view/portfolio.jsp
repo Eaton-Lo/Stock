@@ -9,6 +9,11 @@
 <%@ include file="../config/headerFile.file"%>
 <title></title>
 <style type="text/css">
+ hr {
+       border-top: 1px dotted #000000 !important;
+       margin-bottom:2px; 
+       margin-top:2px;
+   }
 </style>
 </head>
 <body>
@@ -20,8 +25,9 @@
 				<div class="panel panel-default">
 					<div class="panel-heading ">
 						Portfolio<span id="PortfolioName"></span>
-						<div class="pull-right btn btn-success" id="deletePortfolioBtn">delete
+						<div class="pull-right btn btn-success" id="deletePortfolioBtn" >delete
 							 portfolio</div>
+							 <div class="pull-right btn btn-success" id="modifyPortfolioBtn">modify portfolio</div>
 						<div class="pull-right btn btn-success" id="createNewPortfolioBtn">create
 							new portfolio</div>
 						
@@ -49,6 +55,7 @@
 										</label><span class="col-lg-2 btn cashTypeBtn">Deposit</span> <label
 											class="col-lg-1" style="text-align: center;">/</label> <span
 											class="col-lg-2 btn cashTypeBtn">Withdraw</span>
+											<label class="col-lg-2" style="text-align: center;" id="cashVal"></label>
 									</div>
 								</form>
 							</div>
@@ -59,23 +66,23 @@
 											id="cashTypeTitle"> </label>
 										<div class="col-lg-10">
 											<div class="col-lg-12">
-												<label class="col-lg-2" style="text-align: center;" id="">Date</label>
+												<label class="col-lg-2" style="text-align: center;">Date</label>
 												<div class="col-lg-4">
-													<input class="form-control" />
+													<input class="form-control datepicker" id="cashDatepicker"/>
 												</div>
-												<label class="col-lg-2" style="text-align: center;" id="">Amount</label>
+												<label class="col-lg-2" style="text-align: center;">Amount</label>
 												<div class="col-lg-4">
-													<input class="form-control" />
+													<input class="form-control" id="cashAmount" />
 												</div>
 
 											</div>
 											<div class="col-lg-12">
-												<label class="col-lg-2" style="text-align: center;" id="">Notes</label>
+												<label class="col-lg-2" style="text-align: center;">Notes</label>
 												<div class="col-lg-6">
-													<input class="form-control" />
+													<input class="form-control" id="cashNotes"/>
 												</div>
 												<div class="col-lg-4">
-													<div class="btn btn-default">Add to portfolio</div>
+													<div class="btn btn-default" id="cashBtn">Add to portfolio</div>
 													<div class="btn btn-default" id="cancelBtn">Cancel</div>
 												</div>
 											</div>
@@ -88,6 +95,7 @@
 						</div>
 						<!-- /.row (nested) -->
 					</div>
+					<hr/>
 					<div class="panel-body">
 						<div class="">
 							<div class="col-lg-12">
@@ -139,7 +147,7 @@
 						<div class="form-group">
 							<label class="col-lg-3">Date</label>
 							<div class="col-lg-9">
-								<input class="form-control" id="datepicker">
+								<input class="form-control datepicker" id="datepicker">
 							</div>
 						</div>
 						<div class="form-group">
